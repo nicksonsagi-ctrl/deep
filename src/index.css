@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-abyss: #020817;
+    --color-deep-navy: #031c35;
+    --color-ocean-blue: #053f62;
+    --color-biolum-cyan: #00e5ff;
+    --color-aquamarine: #28f0d4;
+    --color-jelly-purple: #865dff;
+    --color-ocean-white: #eafbff;
+  }
+
+  body {
+    background-color: #020817;
+    color: #eafbff;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    selection-background-color: #00e5ff;
+    selection-color: #020817;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .font-mono, .telemetry {
+    font-family: 'Space Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #020817;
+}
+::-webkit-scrollbar-thumb {
+  background: #053f62;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00e5ff;
+}
+
+/* Underwater caustic and glow effects */
+.glow-cyan {
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.35);
+}
+
+.glow-purple {
+  box-shadow: 0 0 25px rgba(134, 93, 255, 0.35);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 15px rgba(134, 93, 255, 0.6);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(3, 28, 53, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 229, 255, 0.15);
+}
+
+.glass-panel-dark {
+  background: rgba(2, 8, 23, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(40, 240, 212, 0.1);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 229, 255, 0.12);
+}
+
+/* Caustic shimmer animation */
+@keyframes causticShift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.caustic-bg {
+  background-image: 
+    radial-gradient(ellipse at 20% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(134, 93, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(40, 240, 212, 0.04) 0%, transparent 60%);
+  background-size: 200% 200%;
+  animation: causticShift 25s ease infinite;
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.4)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.8)); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}

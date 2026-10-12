@@ -1,0 +1,6 @@
+{
+  "name": "DEEP BLUE — Discover the Unknown",
+  "description": "Journey beneath the surface and dive through the ocean zones from sunlight to the abyss with interactive 3D underwater exploration, marine life exhibits, and research expeditions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
